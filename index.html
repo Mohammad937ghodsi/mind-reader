@@ -1,0 +1,31 @@
+<div class="game">
+  <h1>🧠 ذهن‌خوان</h1>
+
+  <p id="text">من می‌تونم ذهن تو رو بخونم!</p>
+
+  <input id="number" type="number" min="1" max="100"
+         placeholder="عددت را وارد کن" style="display:none;">
+
+  <button onclick="nextStep()">ادامه</button>
+</div>
+
+<script>
+let step = 0;
+
+function nextStep() {
+  if (step === 0) {
+    document.getElementById("text").innerText =
+      "حالا به یک عدد بین ۱ تا ۱۰۰ فکر کن.";
+
+    step = 1;
+
+  } else if (step === 1) {
+    document.getElementById("text").innerText =
+      "حالا عددی که بهش فکر کردی رو وارد کن.";
+
+    document.getElementById("number").style.display = "block";
+
+    step = 2;
+  }
+}
+</script>
