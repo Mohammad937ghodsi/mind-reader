@@ -11,12 +11,12 @@
 
 <script>
 let step = 0;
+let chosenNumber = "";
 
 function nextStep() {
   if (step === 0) {
     document.getElementById("text").innerText =
       "حالا به یک عدد بین ۱ تا ۱۰۰ فکر کن.";
-
     step = 1;
 
   } else if (step === 1) {
@@ -24,8 +24,28 @@ function nextStep() {
       "حالا عددی که بهش فکر کردی رو وارد کن.";
 
     document.getElementById("number").style.display = "block";
-
     step = 2;
+
+  } else if (step === 2) {
+    chosenNumber = document.getElementById("number").value;
+
+    if (chosenNumber === "") {
+      document.getElementById("text").innerText =
+        "اول عددی که بهش فکر کردی رو وارد کن!";
+      return;
+    }
+
+    document.getElementById("text").innerText =
+      "🧠 در حال ذهن‌خوانی...";
+
+    document.getElementById("number").style.display = "none";
+    step = 3;
+
+    setTimeout(function() {
+      document.getElementById("text").innerText =
+        "ذهن‌خوانی با موفقیت انجام شد!\n\nشما به عدد " +
+        chosenNumber + " فکر کرده بودید.";
+    }, 3000);
   }
 }
-</script>
+      </script>
